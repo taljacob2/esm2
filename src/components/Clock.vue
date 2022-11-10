@@ -1,8 +1,6 @@
 <script lang="ts">
 export default {
     mounted() {
-        this.hourHand = document.getElementById('hour-hand')
-        this.minuteHand = document.getElementById('minute-hand')
         this.secondHand = document.getElementById('second-hand')
 
         setInterval(this.setClock, 1000)
@@ -10,8 +8,6 @@ export default {
     },
     data() {
         return {
-            hourHand: document.getElementById('hour-hand'),
-            minuteHand: document.getElementById('minute-hand'),
             secondHand: document.getElementById('second-hand')
         }
     },
@@ -22,11 +18,7 @@ export default {
         setClock: function () {
             const currentDate = new Date()
             const secondsRatio = currentDate.getSeconds() / 60
-            const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60
-            const hoursRatio = (minutesRatio + currentDate.getHours()) / 12
             this.setRotation(this.secondHand, secondsRatio)
-            this.setRotation(this.minuteHand, minutesRatio)
-            this.setRotation(this.hourHand, hoursRatio)
         }
     },
 }
@@ -36,21 +28,7 @@ export default {
 
 <template>
     <div class="clock">
-        <!-- <div class="hand hour" id="hour-hand"></div>
-        <div class="hand minute" id="minute-hand"></div> -->
         <div class="hand second" id="second-hand"></div>
-        <!-- <div class="number number1">1</div>
-        <div class="number number2">2</div>
-        <div class="number number3">3</div>
-        <div class="number number4">4</div>
-        <div class="number number5">5</div>
-        <div class="number number6">6</div>
-        <div class="number number7">7</div>
-        <div class="number number8">8</div>
-        <div class="number number9">9</div>
-        <div class="number number10">10</div>
-        <div class="number number11">11</div>
-        <div class="number number12">12</div> -->
     </div>
 </template>
 
@@ -59,16 +37,6 @@ export default {
 *::after,
 *::before {
     box-sizing: border-box;
-    font-family: Gotham Rounded, sans-serif;
-}
-
-body {
-    background: linear-gradient(to right, hsl(200, 100%, 50%), hsl(175, 100%, 50%));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
 }
 
 .clock {
@@ -78,60 +46,6 @@ body {
     border-radius: 50%;
     border: 25px solid rgba(122, 29, 29, 0.967);
     position: relative;
-}
-
-.clock .number {
-    --rotation: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transform: rotate(var(--rotation));
-    font-size: 1.5rem;
-}
-
-.clock .number1 {
-    --rotation: 30deg;
-}
-
-.clock .number2 {
-    --rotation: 60deg;
-}
-
-.clock .number3 {
-    --rotation: 90deg;
-}
-
-.clock .number4 {
-    --rotation: 120deg;
-}
-
-.clock .number5 {
-    --rotation: 150deg;
-}
-
-.clock .number6 {
-    --rotation: 180deg;
-}
-
-.clock .number7 {
-    --rotation: 210deg;
-}
-
-.clock .number8 {
-    --rotation: 240deg;
-}
-
-.clock .number9 {
-    --rotation: 270deg;
-}
-
-.clock .number10 {
-    --rotation: 300deg;
-}
-
-.clock .number11 {
-    --rotation: 330deg;
 }
 
 .clock .hand {
@@ -164,18 +78,6 @@ body {
     width: 3px;
     height: 45%;
     background-color: red;
-}
-
-.clock .hand.minute {
-    width: 7px;
-    height: 40%;
-    background-color: black;
-}
-
-.clock .hand.hour {
-    width: 10px;
-    height: 35%;
-    background-color: black;
 }
 
 .clock .hand {
