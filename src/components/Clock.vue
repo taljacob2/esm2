@@ -59,6 +59,7 @@ export default {
     transform-origin: bottom;
     z-index: 10;
     transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    box-shadow: 4px 5px rgba(104, 103, 103, 0.304);
 }
 
 .clock::after {
@@ -78,9 +79,5 @@ export default {
     width: 3px;
     height: 45%;
     background-color: red;
-}
-
-.clock .hand {
-    box-shadow: 4px 5px rgba(104, 103, 103, 0.304);
 }
 </style>
