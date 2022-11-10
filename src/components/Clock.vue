@@ -1,27 +1,37 @@
-<script setup lang="ts">
-import { ref } from 'vue';
+<script lang="ts">
+export default {
+    mounted() {
+        this.hourHand = document.getElementById('hour-hand')
+        this.minuteHand = document.getElementById('minute-hand')
+        this.secondHand = document.getElementById('second-hand')
 
-setInterval(setClock, 1000)
-
-const hourHand = document.getElementById('hour-hand') // this.$ref.hourHand
-const minuteHand = document.getElementById('minute-hand')
-const secondHand = document.getElementById('second-hand')
-
-function setClock() {
-    const currentDate = new Date()
-    const secondsRatio = currentDate.getSeconds() / 60
-    const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60
-    const hoursRatio = (minutesRatio + currentDate.getHours()) / 12
-    setRotation(secondHand, secondsRatio)
-    setRotation(minuteHand, minutesRatio)
-    setRotation(hourHand, hoursRatio)
+        setInterval(this.setClock, 1000)
+        this.setClock
+    },
+    data() {
+        return {
+            hourHand: document.getElementById('hour-hand'),
+            minuteHand: document.getElementById('minute-hand'),
+            secondHand: document.getElementById('second-hand')
+        }
+    },
+    methods: {
+        setRotation: function(element: HTMLElement | null, rotationRatio: number) {
+            element?.style.setProperty('--rotation', (rotationRatio * 360).toString())
+        },
+        setClock: function () {
+            const currentDate = new Date()
+            const secondsRatio = currentDate.getSeconds() / 60
+            const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60
+            const hoursRatio = (minutesRatio + currentDate.getHours()) / 12
+            this.setRotation(this.secondHand, secondsRatio)
+            this.setRotation(this.minuteHand, minutesRatio)
+            this.setRotation(this.hourHand, hoursRatio)
+        }
+    },
 }
 
-function setRotation(element: HTMLElement | null, rotationRatio: number) {
-    element?.style.setProperty('--rotation', (rotationRatio * 360).toString())
-}
 
-setClock()
 </script>
 
 <template>
