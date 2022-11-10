@@ -36,10 +36,10 @@ export default {
 
 <template>
     <div class="clock">
-        <div class="hand hour" id="hour-hand"></div>
-        <div class="hand minute" id="minute-hand"></div>
+        <!-- <div class="hand hour" id="hour-hand"></div>
+        <div class="hand minute" id="minute-hand"></div> -->
         <div class="hand second" id="second-hand"></div>
-        <div class="number number1">1</div>
+        <!-- <div class="number number1">1</div>
         <div class="number number2">2</div>
         <div class="number number3">3</div>
         <div class="number number4">4</div>
@@ -50,7 +50,7 @@ export default {
         <div class="number number9">9</div>
         <div class="number number10">10</div>
         <div class="number number11">11</div>
-        <div class="number number12">12</div>
+        <div class="number number12">12</div> -->
     </div>
 </template>
 
@@ -76,7 +76,7 @@ body {
     height: 300px;
     background-color: rgba(255, 255, 255, .8);
     border-radius: 50%;
-    border: 2px solid black;
+    border: 25px solid rgba(122, 29, 29, 0.967);
     position: relative;
 }
 
@@ -176,5 +176,9 @@ body {
     width: 10px;
     height: 35%;
     background-color: black;
+}
+
+.clock .hand {
+    box-shadow: 4px 5px rgba(104, 103, 103, 0.304);
 }
 </style>
