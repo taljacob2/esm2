@@ -33,12 +33,6 @@ export default {
 </template>
 
 <style scoped>
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
-}
-
 .clock {
     width: 300px;
     height: 300px;
