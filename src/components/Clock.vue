@@ -16,7 +16,7 @@ export default {
         }
     },
     methods: {
-        setRotation: function(element: HTMLElement | null, rotationRatio: number) {
+        setRotation: function (element: HTMLElement | null, rotationRatio: number) {
             element?.style.setProperty('--rotation', (rotationRatio * 360).toString())
         },
         setClock: function () {
