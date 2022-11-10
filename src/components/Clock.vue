@@ -36,9 +36,9 @@ export default {
 
 <template>
     <div class="clock">
-        <div class="hand hour" ref="hourHand" id="hour-hand"></div>
-        <div class="hand minute" ref="minuteHand" id="minute-hand"></div>
-        <div class="hand second" ref="secondHand" id="second-hand"></div>
+        <div class="hand hour" id="hour-hand"></div>
+        <div class="hand minute" id="minute-hand"></div>
+        <div class="hand second" id="second-hand"></div>
         <div class="number number1">1</div>
         <div class="number number2">2</div>
         <div class="number number3">3</div>
